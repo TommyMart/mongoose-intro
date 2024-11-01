@@ -23,7 +23,6 @@ app.get("/", (request, response) => {
 });
 
 
-
 // Server app configuration is finished by this point 
 
 // Export the app so that other files can control when the server

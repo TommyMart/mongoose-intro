@@ -11,16 +11,21 @@ async function createPost (title, content = null) {
     return result;
 }
 
-async function findOnePost () {
-    
+// findOnePost({title: "Alex's blog Post"});
+async function findOnePost (query) {
+    let result = await PostModel.findOne(query);
+
+    return result;
 }
 
-async function findManyPosts () {
+async function findManyPosts (query) {
+    let result = await PostModel.find(query)
 
+    return result;
 }
 
 async function updateOnePost () {
-
+    
 }
 
 async function updateManyPosts () {

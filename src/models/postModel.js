@@ -14,7 +14,8 @@ const PostSchema = mongoose.Schema({
 });
 
 // 2. Make a model based on the schema
-
+// Create new model called "PostModel" from PostSchema
+// Mongoose will create a collection named 'posts' from model name 'Post'
 const PostModel = mongoose.model("Post", PostSchema);
 
 // 3. Export the model for the rest of our code to use
