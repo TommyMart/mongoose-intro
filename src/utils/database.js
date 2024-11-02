@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 const { PostModel } = require("../models/PostModel");
 const { UserModel } = require("../models/UserModel");
 
-// Connect to DB, disconnect to DB, drop all DB data
-// require("dotenv").config();
 
 // Function to connect to whatever DB our environment variable says to connect to 
 async function dbConnect(){
@@ -14,14 +12,13 @@ async function dbConnect(){
 }
 
 async function dbDisconnect(){
-    // await mongoose.disconnect()
-    // Graceful disconnect from MongoDB
-    await mongoose.connection.close();
+	// await mongoose.disconnect()
+	// Graceful disconnect from MongoDB
+	await mongoose.connection.close();
 }
 
-// Delete all data in DB
-async function dbDrop() {
-    await mongoose.connection.db.dropDatabase();
+async function dbDrop(){
+	await mongoose.connection.db.dropDatabase();
 }
 
 module.exports = {

@@ -1,29 +1,29 @@
 // Provide CRUD functions for the PostModel 
 
-const { PostModel } = require("../../models/PostModel")
+const { PostModel } = require("../../models/PostModel");
 
 async function createPost (title, content = null, authorId) {
-    let result = await PostModel.create({
-        title: title,
-        content: content,
-        author: authorId
-    });
+	let result = await PostModel.create({
+		title: title,
+		content: content,
+		author: authorId
+		// leaving "date" out since its default is Date.now
+	});
 
-    return result;
+	return result;
 }
 
-// findOnePost({title: "Alex's blog Post"});
+// findOnePost({title:"Alex's Cool Blog Post"});
 async function findOnePost (query) {
-    // found a post and want to populate the find named author
-    let result = await PostModel.findOne(query).populate("author");
+	let result = await PostModel.findOne(query).populate("author");
 
-    return result;
+	return result;
 }
 
 async function findManyPosts (query) {
-    let result = await PostModel.find(query)
+	let result = await PostModel.find(query);
 
-    return result;
+	return result;
 }
 
 async function updateOnePost () {
@@ -43,8 +43,8 @@ async function deleteManyPosts () {
 }
 
 module.exports = {
-    createPost,
-    findOnePost, findManyPosts,
-    updateOnePost, updateManyPosts,
-    deleteOnePost, deleteManyPosts
+	createPost,
+	findOnePost, findManyPosts,
+	updateOnePost, updateManyPosts,
+	deleteOnePost, deleteManyPosts
 }

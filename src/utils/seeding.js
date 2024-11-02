@@ -7,15 +7,33 @@ require("dotenv").config();
 async function seed (){
 	// await dbConnect();
 
-	let newUser = await createUser("Test", true, "test@test.com");
+	
+    let newUser = await createUser("Tom", true, "tom@test.com");
+    
 	
 	await createPost(
 		"Example title", 
-		"Example content blah blah blah",
-		newUser.id
+		[
+			{
+				languageCode: "en",
+				content: "Example content blah blah blah"
+			},
+			{
+				languageCode: "fr",
+				content: "Omelette au fromage"
+			},
+		],
+		newUser.id,
+        newUser.username
 	);
 
-	let resultFindOne = await findOnePost({title: "Example title", content: "Example content blah blah blah"});
+	let resultFindOne = await findOnePost(
+		{
+			title: "Example title", 
+			"content.languageCode": "en", 
+			"content.content": "Example content blah blah blah"
+		}
+	);
 
 	console.log(resultFindOne.title);
 	console.log(resultFindOne._id);
