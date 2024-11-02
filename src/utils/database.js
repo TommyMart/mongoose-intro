@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const { PostModel } = require("../models/PostModel");
+const { UserModel } = require("../models/UserModel");
 
 // Connect to DB, disconnect to DB, drop all DB data
-
+// require("dotenv").config();
 
 // Function to connect to whatever DB our environment variable says to connect to 
 async function dbConnect(){
